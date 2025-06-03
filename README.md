@@ -16,3 +16,11 @@ docker start 5075095b8cf9
 
 此时，便可以采用 http://localhost:8000/ 访问 vue 站点了。
 
+# WebAPI
+采用 visual studio 2022 创建一个 WebAPI 项目，选择启用容器支持。  
+容器生成类型选择 Dockerfile 即可。  
+运行时通过 Container(Dockerfile)启动，与本机调整没有什么区别。  
+唯一麻烦的就是要去 docker 上看看容器的端口映射，通过映射的本机端口访问 webapi。  
+
+vs 自带的示例 http://localhost:32774/weatherforecast/
+
