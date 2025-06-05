@@ -1,0 +1,13 @@
+services:
+  mywebapi:
+    image: ${DOCKER_REGISTRY-}mywebapi
+    depends_on:
+      redis:
+        condition: service_started
+    build:
+      context: .
+      dockerfile: Backend/MyWebApi/Dockerfile
+    ports:
+        - "8001:8080"
+  redis:
+     image: redis

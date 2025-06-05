@@ -5,17 +5,16 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
 
 # 此阶段用于生成服务项目
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Backend/MyWebApi/MyWebApi.csproj", "Backend/MyWebApi/"]
-RUN dotnet restore "./Backend/MyWebApi/MyWebApi.csproj"
+COPY ["MyWebApi.csproj", "."]
+RUN dotnet restore "./MyWebApi.csproj"
 COPY . .
-WORKDIR "/src/Backend/MyWebApi"
+WORKDIR "/src/."
 RUN dotnet build "./MyWebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # 此阶段用于发布要复制到最终阶段的服务项目

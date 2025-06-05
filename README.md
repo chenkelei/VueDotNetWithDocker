@@ -22,5 +22,8 @@ docker start 5075095b8cf9
 运行时通过 Container(Dockerfile)启动，与本机调整没有什么区别。  
 唯一麻烦的就是要去 docker 上看看容器的端口映射，通过映射的本机端口访问 webapi。  
 
-vs 自带的示例 http://localhost:32774/weatherforecast/
+vs 自带的示例 http://localhost:54418/weatherforecast/
 
+# Docker compose
+参考：  
+https://learn.microsoft.com/zh-cn/visualstudio/containers/tutorial-multicontainer?view=vs-2022  
